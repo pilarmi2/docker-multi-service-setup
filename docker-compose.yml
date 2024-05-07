@@ -7,6 +7,7 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=3030
+      - STORE_SERVICE=http://store-service:4040
 
   store-service:
     build: https://github.com/pilarmi2/store-service.git
@@ -23,6 +24,8 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=5050
+      - STORE_SERVICE=http://store-service:4040
+      - API_SERVICE=http://api-service:3030
 
   backend:
     build: https://github.com/pilarmi2/backend.git
@@ -31,3 +34,4 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=6060
+      - BUSINESS_SERVICE=http://business-service:5050
