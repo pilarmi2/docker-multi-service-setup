@@ -1,0 +1,33 @@
+version: '3'
+services:
+  api-service:
+    build: https://github.com/pilarmi2/api-service.git
+    ports:
+      - "3030:3030"  # Map container port 8080 to host port 8080
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3030
+
+  store-service:
+    build: https://github.com/pilarmi2/store-service.git
+    ports:
+      - "4040:4040"  # Map container port 8080 to host port 8080
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4040
+
+  business-service:
+    build: https://github.com/pilarmi2/business-service.git
+    ports:
+      - "5050:5050"  # Map container port 8080 to host port 8080
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5050
+
+  backend:
+    build: https://github.com/pilarmi2/backend.git
+    ports:
+      - "6060:6060"  # Map container port 8080 to host port 8080
+    environment:
+      - HOST=0.0.0.0
+      - PORT=6060
